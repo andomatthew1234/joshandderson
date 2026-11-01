@@ -46,6 +46,16 @@ function initMobileNav() {
     const label = toggle?.querySelector(".nav-toggle-label");
     if (!toggle || !nav) return;
 
+    const header = document.querySelector('.site-header');
+    const updateHeaderHeight = () => {
+        document.documentElement.style.setProperty('--header-height', `${Math.ceil(header.getBoundingClientRect().height)}px`);
+    };
+    if (header) {
+        updateHeaderHeight();
+        if ('ResizeObserver' in window) new ResizeObserver(updateHeaderHeight).observe(header);
+        else window.addEventListener('resize', updateHeaderHeight);
+    }
+
     const setMenuState = (isOpen, returnFocus = false) => {
         toggle.setAttribute("aria-expanded", String(isOpen));
         nav.classList.toggle("is-open", isOpen);
@@ -59,7 +69,11 @@ function initMobileNav() {
     });
 
     nav.addEventListener("click", event => {
-        if (event.target.closest("a")) setMenuState(false);
+        if (event.target.closest("a")) setMenuState(false, window.innerWidth <= 900);
+    });
+
+    document.addEventListener('pointerdown', event => {
+        if (toggle.getAttribute('aria-expanded') === 'true' && !nav.contains(event.target) && !toggle.contains(event.target)) setMenuState(false);
     });
 
     document.addEventListener("keydown", event => {
