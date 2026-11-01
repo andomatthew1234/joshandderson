@@ -83,13 +83,17 @@ h1, h2, h3, h4, h5, h6 {
 .logo {
     display: flex;
     align-items: center;
+    flex: 0 1 280px;
+    min-width: 0;
     transition: opacity 0.3s ease;
 }
 
 .logo img {
     background: transparent;
-    height: 96px;
-    width: auto;
+    display: block;
+    height: auto;
+    width: 100%;
+    max-width: 100%;
     object-fit: contain;
 }
 
@@ -1153,9 +1157,6 @@ h1, h2 { line-height: 1.08; }
         gap: 1.5rem;
     }
     
-    .logo img {
-        height: 68px;
-    }
 
     .site-nav ul {
         flex-wrap: wrap;
@@ -1257,9 +1258,6 @@ h1, h2 { line-height: 1.08; }
         padding: 0.75rem 1rem;
     }
 
-    .logo img {
-        height: 68px;
-    }
 
     .nav-toggle {
         align-items: center;
@@ -1420,7 +1418,6 @@ h1, h2 { line-height: 1.08; }
 
 @media (max-width: 420px) {
     .nav-container { min-height: 70px; padding: .6rem .85rem; }
-    .logo img { height: 58px; }
     .nav-toggle { font-size: .72rem; }
     .content-section { padding-left: 1rem; padding-right: 1rem; }
     .page-header { padding-left: 1rem; padding-right: 1rem; }
@@ -1482,9 +1479,6 @@ h1, h2 { line-height: 1.08; }
     .nav-toggle:hover, .nav-toggle[aria-expanded="true"] { background: var(--light-blue); border-color: var(--accent-blue); }
     .site-nav { border-top-color: var(--line); }
 }
-@media (max-width: 420px) {
-    .logo img { height: auto; width: 210px; max-width: 55vw; }
-}
 
 /* In-page navigation keeps the About section below the sticky header. */
 html { scroll-behavior: smooth; }
@@ -1541,4 +1535,11 @@ html { scroll-behavior: smooth; }
 @media (max-width: 480px) {
     .brand-footer .footer-container { grid-template-columns: minmax(0, 1fr); }
     .footer-bottom { align-items: flex-start; flex-direction: column; }
+}
+
+/* Reserve room for the menu while keeping the complete wordmark visible. */
+@media (max-width: 1050px) {
+    .nav-container { gap: 1rem; }
+    .logo { flex-basis: min(230px, calc(100% - 105px)); }
+    .nav-toggle { flex: 0 0 auto; }
 }
