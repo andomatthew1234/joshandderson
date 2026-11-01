@@ -9,13 +9,16 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .catch(err => console.error("Error loading header:", err));
 
-    // Inject Footer
-    fetch("footer.html")
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById("footer-placeholder").innerHTML = data;
-        })
-        .catch(err => console.error("Error loading footer:", err));
+    // Some pages intentionally finish after their main content.
+    const footerPlaceholder = document.getElementById("footer-placeholder");
+    if (footerPlaceholder) {
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                footerPlaceholder.innerHTML = data;
+            })
+            .catch(err => console.error("Error loading footer:", err));
+    }
 
     initAccordions();
 });

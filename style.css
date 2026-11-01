@@ -159,8 +159,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(90deg, rgba(23, 62, 96, 0.92), rgba(25, 62, 96, 0.68)),
-                url('assets/hero.jpg') center/cover no-repeat;
+    background: linear-gradient(90deg, rgba(255, 255, 255, .98), rgba(255, 255, 255, .9) 45%, rgba(255, 255, 255, .15)),
+                url('assets/hero-guitar.jpg') center/cover no-repeat;
     color: var(--text-light);
     text-align: center;
     min-height: 610px;
@@ -1460,7 +1460,7 @@ h1, h2 { line-height: 1.08; }
 .site-nav a { color: var(--primary-blue); }
 .site-nav a:hover, .site-nav a.active { color: var(--accent-blue); }
 .site-nav a::after, .site-nav a:hover::after, .site-nav a.active::after { background: var(--accent-blue); }
-.hero { background: linear-gradient(90deg, rgba(228, 244, 255, .97), rgba(228, 244, 255, .87)), url('assets/hero.jpg') center/cover no-repeat; color: var(--primary-blue); }
+.hero { color: var(--primary-blue); }
 .hero-kicker, .gallery-kicker, .team-title { color: var(--accent-blue); }
 .tagline, .page-header .tagline { color: #375c79; }
 .page-header { background: linear-gradient(120deg, #e5f4ff, #f7fcff); color: var(--primary-blue); border-top-color: var(--line); }
@@ -1483,4 +1483,15 @@ h1, h2 { line-height: 1.08; }
 }
 @media (max-width: 420px) {
     .logo img { height: auto; width: 210px; max-width: 55vw; }
+}
+
+/* In-page navigation keeps the About section below the sticky header. */
+html { scroll-behavior: smooth; }
+.hero-buttons { margin-top: 2rem; }
+#about { scroll-margin-top: 1rem; }
+@media (max-width: 600px) {
+    .hero { background-image: linear-gradient(90deg, rgba(255, 255, 255, .96), rgba(255, 255, 255, .8)), url('assets/hero-guitar.jpg'); }
+}
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
 }
