@@ -35,9 +35,13 @@ h3 { font-size: 2rem; }
 /* A quiet masthead, with a proper mobile navigation. */
 #header-placeholder { min-height: 89px; position: sticky; top: 0; z-index: 100; }
 .site-header { background: rgba(255,255,255,.97); border-bottom: 1px solid var(--line); }
-.nav-container { align-items: center; display: flex; gap: 2rem; justify-content: space-between; margin: auto; max-width: 1296px; padding: 16px 48px; position: relative; }
-.logo { display: block; flex: 0 1 220px; min-width: 0; }
-.logo img { width: 100%; height: auto; }
+.nav-container { align-items: center; display: flex; gap: 2rem; justify-content: space-between; margin: auto; max-width: 1296px; min-height: 88px; padding: 16px 48px; position: relative; }
+.brand-lockup { align-items: center; color: var(--ink); display: inline-flex; flex: 0 0 auto; gap: 12px; max-width: 100%; text-decoration: none; width: max-content; }
+.brand-mark { color: var(--blue); display: block; flex: 0 0 30px; height: 42px; width: 30px; }
+.brand-wordmark { display: grid; gap: 6px; }
+.brand-name { font: 500 1.55rem/1.05 var(--heading-font); letter-spacing: -.025em; white-space: nowrap; }
+.brand-label { font: 500 .55rem/1 var(--body-font); letter-spacing: .3em; text-transform: uppercase; }
+.logo { min-width: 0; }
 .site-nav ul { align-items: center; display: flex; gap: 2rem; list-style: none; }
 .site-nav a { display: inline-block; font-size: .85rem; font-weight: 500; padding: .6rem 0; position: relative; text-decoration: none; white-space: nowrap; }
 .site-nav a::after { background: var(--blue); bottom: .25rem; content: ''; height: 1px; left: 0; position: absolute; transform: scaleX(0); transform-origin: left; transition: transform .3s var(--ease); width: 100%; }
@@ -104,8 +108,7 @@ h3 { font-size: 2rem; }
 /* A signature, page index and contact information. */
 .site-footer { background: #f4f8fb; border-top: 1px solid var(--line); padding: 4.5rem 48px 1.5rem; }
 .footer-container { display: grid; gap: 3rem; grid-template-columns: 1.3fr .8fr 1fr; margin: auto; max-width: var(--page-width); padding-bottom: 4rem; }
-.footer-logo { display: block; max-width: 220px; }
-.footer-logo img { width: 100%; }
+.footer-logo { max-width: 100%; }
 .footer-brand > p { color: var(--muted); font-size: .8rem; margin-top: 1rem; }
 .site-footer h2 { font-family: var(--body-font); font-size: .7rem; font-weight: 500; letter-spacing: .1em; margin-bottom: 1.5rem; text-transform: uppercase; }
 .footer-page-links { display: grid; gap: .5rem; list-style: none; }
@@ -140,8 +143,7 @@ body.is-loaded .hero-media img { animation: image-enter 1.3s var(--ease) both; }
 @media (max-width: 900px) {
     .container { width: calc(100% - 48px); }
     #header-placeholder { min-height: 81px; }
-    .nav-container { padding: 16px 24px; }
-    .logo { flex-basis: 190px; }
+    .nav-container { min-height: 80px; padding: 16px 24px; }
     .nav-toggle { align-items: center; background: none; border: 0; color: var(--ink); cursor: pointer; display: flex; flex: 0 0 auto; font-size: .75rem; gap: .75rem; min-height: 44px; }
     .nav-toggle-icon { border-bottom: 1px solid; border-top: 1px solid; height: 7px; position: relative; transition: transform .3s; width: 20px; }
     .nav-toggle[aria-expanded="true"] .nav-toggle-icon { transform: rotate(-45deg); }
@@ -162,6 +164,12 @@ body.is-loaded .hero-media img { animation: image-enter 1.3s var(--ease) both; }
     .music-tabs:not([hidden]) { gap: 2rem; }
 }
 @media (max-width: 600px) {
+    .nav-container { gap: 16px; padding-inline: 20px; }
+    .brand-lockup { gap: 10px; }
+    .brand-mark { flex-basis: 25px; height: 35px; width: 25px; }
+    .brand-name { font-size: clamp(1.05rem, 5vw, 1.35rem); }
+    .brand-wordmark { gap: 5px; }
+    .brand-label { font-size: .5rem; }
     html { scroll-padding-top: 100px; }
     .hero { grid-template-columns: minmax(0, 1fr); }
     .hero h1 { font-size: clamp(3.5rem, 14vw, 5.5rem); max-width: 12ch; }
