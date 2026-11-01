@@ -2,7 +2,7 @@
 
 Light blue and white website for Josh Anderson Music, hosted at https://andomatthew1234.github.io/joshandderson/.
 
-Includes Home and a Josh Anderson profile, shared navigation/footer, a placeholder portrait, and a custom SVG wordmark and favicon. Event photography is retained for future customization.
+Includes Home, a Josh Anderson profile, and Contact, shared navigation/footer, a placeholder portrait, and a custom SVG wordmark and favicon. Event photography is retained for future customization.
 
 Run locally with `python3 -m http.server 8000`. Pushes to `main` deploy automatically with GitHub Actions. Google Fonts is an external dependency.
 
