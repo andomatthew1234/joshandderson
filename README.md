@@ -7,3 +7,5 @@ Includes Home, a Josh Anderson profile, and Contact, shared navigation/footer, a
 Run locally with `python3 -m http.server 8000`. Pushes to `main` deploy automatically with GitHub Actions. Google Fonts is an external dependency.
 
 Home hero photograph: Rafael Rodrigues, [Unsplash](https://unsplash.com/photos/a-close-up-of-a-guitar-strings-on-a-wooden-guitar-XQnMqkokCBY). Served locally without a colour tint.
+
+Music service icons are from [Simple Icons](https://github.com/simple-icons/simple-icons), distributed under CC0, and coloured to match the site theme.
