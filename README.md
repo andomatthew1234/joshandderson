@@ -1,9 +1,7 @@
-# joshandderson
+# Josh Anderson Music
 
-Static copy of the Home and Our Team pages from https://sydneybushdances.com/, copied with the owner’s explicit permission on 1 November 2026. Original branding and content are retained for later customization.
+Light blue and white website for Josh Anderson Music, hosted at https://andomatthew1234.github.io/joshandderson/.
 
-Run locally with `python3 -m http.server 8000` and open http://localhost:8000.
+Includes Home and Our Team, shared navigation/footer, and a custom SVG wordmark and favicon. Remaining team details and event photography are retained for future customization.
 
-The two pages, shared header/footer, stylesheet, scripts, and images are included. Links to pages outside this scope point to the original site. Google Fonts remains an external dependency. Original analytics is omitted so this copy does not send visits to the original analytics property.
-
-Publish as a public GitHub repository named `joshandderson` on branch `main`, then select GitHub Actions under Settings → Pages. The included workflow deploys the site automatically.
+Run locally with `python3 -m http.server 8000`. Pushes to `main` deploy automatically with GitHub Actions. Google Fonts is an external dependency.
