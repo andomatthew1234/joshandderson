@@ -1,39 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Inject Header
-    fetch("header.html")
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById("header-placeholder").innerHTML = data;
-            highlightActiveNav();
-            initMobileNav();
-        })
-        .catch(err => console.error("Error loading header:", err));
-
-    // Some pages intentionally finish after their main content.
-    const footerPlaceholder = document.getElementById("footer-placeholder");
-    if (footerPlaceholder) {
-        fetch("footer.html")
-            .then(response => response.text())
-            .then(data => {
-                footerPlaceholder.innerHTML = data;
-            })
-            .catch(err => console.error("Error loading footer:", err));
-    }
-
-    initAccordions();
+    highlightActiveNav();
+    initMobileNav();
+    window.addEventListener("hashchange", highlightActiveNav);
     initMusicTabs();
+    initReveals(document);
+    document.body.classList.add("is-loaded");
 });
 
-// Highlights current menu item
+// Follow page navigation and in-page music links without duplicate active items.
 function highlightActiveNav() {
-    const currentPage = window.location.pathname.split("/").pop() || "index.html";
-    const navLinks = document.querySelectorAll(".site-nav a");
-
-    navLinks.forEach(link => {
-        if (link.getAttribute("href") === currentPage) {
-            link.classList.add("active");
-            link.setAttribute("aria-current", "page");
-        }
+    const page = window.location.pathname.split("/").pop() || "index.html";
+    const links = Array.from(document.querySelectorAll(".site-nav a"));
+    const exact = page + window.location.hash;
+    const activeHref = links.some(link => link.getAttribute("href") === exact) ? exact : page;
+    links.forEach(link => {
+        const active = link.getAttribute("href") === activeHref;
+        link.classList.toggle("active", active);
+        if (active) link.setAttribute("aria-current", activeHref.includes('#') ? 'location' : 'page');
+        else link.removeAttribute("aria-current");
     });
 }
 
@@ -66,28 +50,9 @@ function initMobileNav() {
     });
 
     window.addEventListener("resize", () => {
-        if (window.innerWidth > 1050 && toggle.getAttribute("aria-expanded") === "true") {
+        if (window.innerWidth > 900 && toggle.getAttribute("aria-expanded") === "true") {
             setMenuState(false);
         }
-    });
-}
-
-// Handles FAQ Accordions
-function initAccordions() {
-    const acc = document.querySelectorAll(".faq-question");
-    acc.forEach((button, index) => {
-        const panel = button.nextElementSibling;
-        const panelId = `faq-answer-${index + 1}`;
-        button.setAttribute("aria-expanded", "false");
-        button.setAttribute("aria-controls", panelId);
-        panel.id = panelId;
-        panel.hidden = true;
-        button.addEventListener("click", function() {
-            const isOpen = this.getAttribute("aria-expanded") === "true";
-            this.setAttribute("aria-expanded", String(!isOpen));
-            this.classList.toggle("active", !isOpen);
-            panel.hidden = isOpen;
-        });
     });
 }
 
@@ -123,5 +88,22 @@ function initMusicTabs() {
         });
         selectTab(0);
         tablist.hidden = false;
+    });
+}
+
+// Reveal once, then release the observer. All content is visible without JS.
+function initReveals(root) {
+    if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.08 });
+    root.querySelectorAll('.intro-section .container, .music-section .container, .page-header, .team-card, .contact-option, .footer-brand, .footer-links-block, .footer-feature, .footer-bottom').forEach(element => {
+        element.classList.add('reveal-ready');
+        observer.observe(element);
     });
 }

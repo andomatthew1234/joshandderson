@@ -23,17 +23,42 @@
 </head>
 <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
-    <div id="header-placeholder"></div>
+    <!-- shared-header:start -->
+<div id="header-placeholder">
+<header class="site-header">
+    <div class="nav-container">
+        <a href="index.html" class="logo">
+            <img src="assets/logo.svg" width="280" height="72" alt="Josh Anderson Music Logo">
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">
+            <span class="nav-toggle-label">Menu</span>
+            <span class="nav-toggle-icon" aria-hidden="true"></span>
+        </button>
+        <nav class="site-nav" id="site-navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#my-music">My music</a></li>
+                <li><a href="team.html">About me</a></li>
+                <li><a class="nav-contact" href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+</div>
+<!-- shared-header:end -->
     <main id="main-content">
         <section class="hero">
             <div class="hero-overlay">
                 <p class="hero-kicker">The home of Josh Anderson Music.</p>
                 <h1>Josh Anderson Music</h1>
                 <div class="hero-buttons">
-                    <a href="#about" class="btn btn-primary">Learn more</a>
-                    <a href="#about" class="btn btn-secondary">About</a>
+                    <a href="#about" class="btn btn-primary">Learn more <span aria-hidden="true">↓</span></a>
+                    <a href="#about" class="btn btn-secondary">About <span aria-hidden="true">↗</span></a>
                 </div>
             </div>
+            <figure class="hero-media">
+                <img src="assets/hero-guitar.jpg" width="2000" height="1333" alt="A close-up of an acoustic guitar" fetchpriority="high">
+            </figure>
         </section>
 
         <section class="content-section intro-section" id="about" aria-labelledby="about-heading">
@@ -46,7 +71,6 @@
         </section>
         <section class="content-section music-section" id="my-music" aria-labelledby="music-heading">
             <div class="container">
-                <p class="music-kicker">Listen &amp; discover</p>
                 <h2 id="music-heading">My music</h2>
                 <p class="music-intro">Listen on SoundCloud. More platforms coming soon.</p>
                 <div class="music-player" data-music-tabs>
@@ -67,30 +91,65 @@
                     <div class="music-panel-stage">
                         <div class="music-panels">
                             <div class="music-panel" id="panel-soundcloud" role="tabpanel" aria-labelledby="tab-soundcloud" tabindex="0">
-                                <p class="music-status">Listen now</p>
-                                <h3>SoundCloud</h3>
-                                <p>Listen to Josh Anderson Music on SoundCloud.</p>
+                                <div class="music-panel-copy">
+                                    <p class="music-status">Listen now</p>
+                                    <h3>SoundCloud</h3>
+                                    <p>Listen to Josh Anderson Music on SoundCloud.</p>
+                                </div>
                                 <a class="btn btn-primary" href="https://soundcloud.com/user-360699892" target="_blank" rel="noopener noreferrer" aria-label="Listen on SoundCloud (opens in a new tab)">Listen on SoundCloud <span aria-hidden="true">↗</span></a>
                             </div>
                             <div class="music-panel" id="panel-spotify" role="tabpanel" aria-labelledby="tab-spotify" tabindex="0">
-                                <p class="music-status">Coming soon</p>
-                                <h3>Spotify</h3>
-                                <p>Coming soon</p>
+                                <div class="music-panel-copy">
+                                    <p class="music-status">Coming soon</p>
+                                    <h3>Spotify</h3>
+                                </div>
                             </div>
                             <div class="music-panel" id="panel-applemusic" role="tabpanel" aria-labelledby="tab-applemusic" tabindex="0">
-                                <p class="music-status">Coming soon</p>
-                                <h3>Apple Music</h3>
-                                <p>Coming soon</p>
+                                <div class="music-panel-copy">
+                                    <p class="music-status">Coming soon</p>
+                                    <h3>Apple Music</h3>
+                                </div>
                             </div>
                         </div>
-                        <div class="music-record" aria-hidden="true"><span>JA</span></div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <div id="footer-placeholder"></div>
+    <!-- shared-footer:start -->
+<div id="footer-placeholder">
+<footer class="site-footer brand-footer">
+    <div class="footer-container">
+        <div class="footer-brand">
+            <a href="index.html" class="footer-logo" aria-label="Josh Anderson Music home">
+                <img src="assets/logo.svg" width="280" height="72" alt="Josh Anderson Music">
+            </a>
+            <p>The home of Josh Anderson Music.</p>
+        </div>
+        <nav class="footer-links-block" aria-label="Footer navigation">
+            <h2>Explore</h2>
+            <ul class="footer-page-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#my-music">My music</a></li>
+                <li><a href="team.html">About me</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="footer-feature">
+            <p class="footer-eyebrow">Get in touch</p>
+            <h2>Let’s talk music.</h2>
+            <p><strong>Phone:</strong> <a href="tel:+61487285665">0487 285 665</a></p>
+            <a class="btn btn-primary" href="contact.html">Contact Josh <span aria-hidden="true">↗</span></a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Josh Anderson Music. All rights reserved.</p>
+        <a href="#main-content">Back to top <span aria-hidden="true">↑</span></a>
+    </div>
+</footer>
+</div>
+<!-- shared-footer:end -->
 
     <script src="main.js"></script>
 </body>

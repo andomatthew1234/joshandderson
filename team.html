@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Josh Anderson | Josh Anderson Music</title>
+    <title>About me | Josh Anderson Music</title>
     <meta name="description" content="Meet Josh Anderson, the name behind Josh Anderson Music.">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Josh Anderson | Josh Anderson Music">
+    <meta property="og:title" content="About me | Josh Anderson Music">
     <meta property="og:description" content="Meet Josh Anderson, the name behind Josh Anderson Music.">
     <meta property="og:image" content="https://andomatthew1234.github.io/joshandderson/assets/team/josh-placeholder.svg">
     <meta name="twitter:card" content="summary">
@@ -15,11 +15,33 @@
 </head>
 <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
-    <div id="header-placeholder"></div>
+    <!-- shared-header:start -->
+<div id="header-placeholder">
+<header class="site-header">
+    <div class="nav-container">
+        <a href="index.html" class="logo">
+            <img src="assets/logo.svg" width="280" height="72" alt="Josh Anderson Music Logo">
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">
+            <span class="nav-toggle-label">Menu</span>
+            <span class="nav-toggle-icon" aria-hidden="true"></span>
+        </button>
+        <nav class="site-nav" id="site-navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#my-music">My music</a></li>
+                <li><a href="team.html">About me</a></li>
+                <li><a class="nav-contact" href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+</div>
+<!-- shared-header:end -->
     <main id="main-content">
         <div class="page-header">
-            <h1>Josh Anderson</h1>
-            <p class="tagline">The name behind Josh Anderson Music.</p>
+            <p class="page-kicker">Josh Anderson Music</p>
+            <h1>About me</h1>
         </div>
 
         <section class="content-section" aria-labelledby="profile-heading">
@@ -31,6 +53,7 @@
                         </div>
                         <div class="team-info">
                             <h2 id="profile-heading">Josh Anderson</h2>
+                            <a class="btn btn-secondary" href="contact.html">Get in touch <span aria-hidden="true">↗</span></a>
                         </div>
                     </div>
                 </div>
@@ -40,7 +63,39 @@
 
     </main>
 
-    <div id="footer-placeholder"></div>
+    <!-- shared-footer:start -->
+<div id="footer-placeholder">
+<footer class="site-footer brand-footer">
+    <div class="footer-container">
+        <div class="footer-brand">
+            <a href="index.html" class="footer-logo" aria-label="Josh Anderson Music home">
+                <img src="assets/logo.svg" width="280" height="72" alt="Josh Anderson Music">
+            </a>
+            <p>The home of Josh Anderson Music.</p>
+        </div>
+        <nav class="footer-links-block" aria-label="Footer navigation">
+            <h2>Explore</h2>
+            <ul class="footer-page-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#my-music">My music</a></li>
+                <li><a href="team.html">About me</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="footer-feature">
+            <p class="footer-eyebrow">Get in touch</p>
+            <h2>Let’s talk music.</h2>
+            <p><strong>Phone:</strong> <a href="tel:+61487285665">0487 285 665</a></p>
+            <a class="btn btn-primary" href="contact.html">Contact Josh <span aria-hidden="true">↗</span></a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Josh Anderson Music. All rights reserved.</p>
+        <a href="#main-content">Back to top <span aria-hidden="true">↑</span></a>
+    </div>
+</footer>
+</div>
+<!-- shared-footer:end -->
 
     <script src="main.js"></script>
 </body>

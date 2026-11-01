@@ -1,9 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" role="img" aria-labelledby="title desc">
-  <title id="title">Josh Anderson — photo coming soon</title>
-  <desc id="desc">A simple blue silhouette on a pale blue background, used as a placeholder portrait.</desc>
-  <rect width="800" height="800" fill="#edf7ff"/>
-  <circle cx="400" cy="345" r="220" fill="#e0effa"/>
-  <circle cx="400" cy="280" r="90" fill="#9fc9e5"/>
-  <path d="M225 550v-35c0-96 78-150 175-150s175 54 175 150v35" fill="#9fc9e5"/>
-  <text x="400" y="680" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" letter-spacing="4" fill="#375c79">PHOTO COMING SOON</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000" role="img" aria-labelledby="title desc"><title id="title">Josh Anderson — photo coming soon</title><desc id="desc">A simple outlined placeholder portrait on a light blue background.</desc><rect width="800" height="1000" fill="#edf4f8"/><circle cx="400" cy="360" r="100" fill="none" stroke="#b2cbdc" stroke-width="2"/><path d="M190 720v-60c0-120 94-200 210-200s210 80 210 200v60" fill="none" stroke="#b2cbdc" stroke-width="2"/><text x="400" y="870" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" letter-spacing="4" fill="#526b7d">PHOTO COMING SOON</text></svg>
