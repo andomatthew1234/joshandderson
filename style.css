@@ -151,7 +151,7 @@ body.is-loaded .hero-media img { animation: image-enter 1.3s var(--ease) both; }
     .nav-toggle { align-items: center; background: none; border: 0; color: var(--ink); cursor: pointer; display: flex; flex: 0 0 auto; font-size: .875rem; gap: .75rem; margin-inline-start: auto; min-height: 48px; }
     .nav-toggle-icon { border-bottom: 1px solid; border-top: 1px solid; height: 7px; position: relative; transition: transform .3s; width: 20px; }
     .nav-toggle[aria-expanded="true"] .nav-toggle-icon { transform: rotate(-45deg); }
-    .site-nav { background: white; border-bottom: 1px solid var(--line); left: 0; max-height: 0; opacity: 0; overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; padding-inline: var(--left-gutter) var(--right-gutter); position: absolute; right: 0; top: 100%; transform: translateY(-8px); transition: max-height .4s var(--ease), opacity .25s, transform .3s var(--ease), visibility .3s; visibility: hidden; }
+    .site-nav { background: white; border-bottom: 1px solid var(--line); left: 0; max-height: 0; opacity: 0; overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; padding-inline: var(--left-gutter) var(--right-gutter); position: absolute; right: 0; top: 100%; transform: translateY(-8px); transition: opacity .25s, transform .3s var(--ease), visibility .3s; visibility: hidden; }
     .site-nav.is-open { max-height: calc(100vh - var(--header-height)); max-height: calc(100dvh - var(--header-height)); opacity: 1; transform: none; visibility: visible; }
     .site-nav ul { align-items: stretch; flex-direction: column; gap: 0; padding-block: 1rem; }
     .site-nav a { display: block; font-size: 1rem; min-height: 48px; padding: .7rem 0; }
