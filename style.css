@@ -189,16 +189,12 @@ body.is-loaded .hero-media img { animation: image-enter 1.3s var(--ease) both; }
     .reveal-ready { opacity: 1; transform: none; }
 }
 
-/* Cross-page transitions keep the masthead in place while content changes. */
-@media (prefers-reduced-motion: no-preference) {
-    @view-transition { navigation: auto; }
-    #header-placeholder { view-transition-name: masthead; }
-    ::view-transition-old(root) { animation: page-out .22s ease-out both; }
-    ::view-transition-new(root) { animation: page-enter .38s var(--ease) both; }
-    ::view-transition-group(masthead) { animation-duration: 0s; }
-    ::view-transition-old(masthead), ::view-transition-new(masthead) { animation: none; mix-blend-mode: normal; }
-}
-@keyframes page-out { to { opacity: 0; transform: translateY(-6px); } }
+/* Page navigation leaves the masthead visible throughout the transition. */
+main, #footer-placeholder { transition: opacity .16s ease, transform .16s ease; }
+body.is-loaded main { animation: document-enter .38s var(--ease) both; }
+body.is-leaving main { animation: none; }
+body.is-leaving main, body.is-leaving #footer-placeholder { opacity: 0; transform: translateY(-6px); }
+@keyframes document-enter { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 
 /* A glass selector lifts, travels between equal-width tabs, then settles. */
 .music-tabs:not([hidden]) { background: #dfedf6; border: 1px solid #c8dce9; border-radius: 18px; display: grid; gap: 0; grid-template-columns: repeat(3, minmax(0, 1fr)); isolation: isolate; max-width: 100%; padding: 6px; perspective: 900px; position: relative; width: 680px; }
@@ -208,4 +204,9 @@ body.is-loaded .hero-media img { animation: image-enter 1.3s var(--ease) both; }
 .music-tab-indicator::before { border-top: 1px solid white; border-radius: inherit; content: ''; inset: 1px; position: absolute; }
 @media (max-width: 600px) {
     .music-tabs button { align-items: center; padding: .7rem .3rem; text-align: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    main, #footer-placeholder { animation: none !important; transition: none !important; }
+    body.is-leaving main, body.is-leaving #footer-placeholder { opacity: 1; transform: none; }
 }

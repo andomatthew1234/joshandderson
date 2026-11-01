@@ -10,4 +10,4 @@ Home hero photograph: Rafael Rodrigues, [Unsplash](https://unsplash.com/photos/a
 
 Music service icons are from [Simple Icons](https://github.com/simple-icons/simple-icons), distributed under CC0, and coloured to match the site theme.
 
-The site uses native cross-document view transitions in supporting browsers, with normal navigation elsewhere. Motion effects respect the system’s reduced-motion preference. The header and footer are included directly in each page so links work without JavaScript and navigation has no delayed header/footer injection.
+The site uses brief exit and entrance transitions for internal page navigation, while preserving normal external links, modified clicks, anchor scrolling, and browser Back/Forward behavior. Motion effects respect the system’s reduced-motion preference. The header and footer are included directly in each page so links work without JavaScript and navigation has no delayed header/footer injection.
