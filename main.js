@@ -1,4 +1,6 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+    // Older cached pages may still have empty shared-element placeholders.
+    await Promise.all([ensureSharedPart("header", ".site-header"), ensureSharedPart("footer", ".site-footer")]);
     highlightActiveNav();
     initMobileNav();
     window.addEventListener("hashchange", highlightActiveNav);
@@ -6,6 +8,18 @@ document.addEventListener("DOMContentLoaded", () => {
     initReveals(document);
     document.body.classList.add("is-loaded");
 });
+
+async function ensureSharedPart(name, selector) {
+    const host = document.getElementById(`${name}-placeholder`);
+    if (!host || host.querySelector(selector)) return;
+    try {
+        const response = await fetch(`${name}.html`, { cache: "no-cache" });
+        if (!response.ok) throw new Error(`Could not load ${name}`);
+        host.innerHTML = await response.text();
+    } catch (error) {
+        console.error(error);
+    }
+}
 
 // Follow page navigation and in-page music links without duplicate active items.
 function highlightActiveNav() {
@@ -63,7 +77,30 @@ function initMusicTabs() {
         const panels = tabs.map(tab => document.getElementById(tab.getAttribute("aria-controls")));
         if (!tablist || !tabs.length || panels.some(panel => !panel)) return;
 
+        const indicator = document.createElement("span");
+        indicator.className = "music-tab-indicator";
+        indicator.setAttribute("aria-hidden", "true");
+        tablist.prepend(indicator);
+        let indicatorAnimation;
+        let previousIndex = null;
+        const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+
         const selectTab = index => {
+            const from = getComputedStyle(indicator).transform;
+            if (indicatorAnimation) indicatorAnimation.cancel();
+            const target = `translate3d(${index * 100}%, 0, 0)`;
+            indicator.style.transform = target;
+            if (previousIndex !== null && previousIndex !== index && !motionPreference.matches && indicator.animate) {
+                const restShadow = '0 2px 6px rgba(25,62,84,.08)';
+                const liftedShadow = '0 16px 26px rgba(25,62,84,.18)';
+                indicatorAnimation = indicator.animate([
+                    { transform: from, boxShadow: restShadow, offset: 0 },
+                    { transform: `${from} translateZ(18px) scale(1.035, 1.09)`, boxShadow: liftedShadow, offset: .2 },
+                    { transform: `${target} translateZ(18px) scale(1.035, 1.09)`, boxShadow: liftedShadow, offset: .72 },
+                    { transform: target, boxShadow: restShadow, offset: 1 }
+                ], { duration: 560, easing: 'cubic-bezier(.22,.7,.2,1)' });
+            }
+            previousIndex = index;
             tabs.forEach((tab, i) => {
                 const selected = i === index;
                 tab.setAttribute("aria-selected", String(selected));

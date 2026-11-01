@@ -1,6 +1,7 @@
 """Keep shared navigation and footer in the rendered HTML for every page."""
 from pathlib import Path
 import re
+import hashlib
 
 ROOT = Path(__file__).resolve().parent.parent
 for page in ROOT.glob('*.html'):
@@ -18,4 +19,14 @@ for page in ROOT.glob('*.html'):
             if placeholder not in text:
                 raise ValueError(f'Missing {part} placeholder in {page.name}')
             text = text.replace(placeholder, block, 1)
+    def version_asset(match):
+        path = match.group(2).split('?')[0]
+        if path.startswith(('http:', 'https:', '#', 'tel:', 'mailto:')):
+            return match.group(0)
+        asset = ROOT / path
+        if asset.suffix not in ('.css', '.js', '.svg', '.jpg', '.jpeg', '.png') or not asset.is_file():
+            return match.group(0)
+        digest = hashlib.sha256(asset.read_bytes()).hexdigest()[:12]
+        return f'{match.group(1)}{path}?v={digest}"'
+    text = re.sub(r'((?:src|href)=")([^"]+)"', version_asset, text)
     page.write_text(text)
