@@ -26,10 +26,14 @@ async function ensureSharedPart(name, selector) {
 function highlightActiveNav() {
     const page = window.location.pathname.split("/").pop() || "index.html";
     const links = Array.from(document.querySelectorAll(".site-nav a"));
+    const locationKey = link => {
+        const url = new URL(link.href, document.baseURI);
+        return (url.pathname.split('/').pop() || 'index.html') + url.hash;
+    };
     const exact = page + window.location.hash;
-    const activeHref = links.some(link => link.getAttribute("href") === exact) ? exact : page;
+    const activeHref = links.some(link => locationKey(link) === exact) ? exact : page;
     links.forEach(link => {
-        const active = link.getAttribute("href") === activeHref;
+        const active = locationKey(link) === activeHref;
         link.classList.toggle("active", active);
         if (active) link.setAttribute("aria-current", activeHref.includes('#') ? 'location' : 'page');
         else link.removeAttribute("aria-current");
