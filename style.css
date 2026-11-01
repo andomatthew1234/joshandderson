@@ -792,6 +792,7 @@ h1, h2 { line-height: 1.08; }
     text-align: center;
 }
 
+.team-info h2,
 .team-info h3 {
     color: var(--primary-blue);
     font-size: 1.6rem;
