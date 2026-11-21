@@ -56,7 +56,9 @@ function initMobileNav() {
         else window.addEventListener('resize', updateHeaderHeight);
     }
 
+    const mobile = window.matchMedia("(max-width: 900px)");
     const setMenuState = (isOpen, returnFocus = false) => {
+        nav.inert = mobile.matches && !isOpen;
         toggle.setAttribute("aria-expanded", String(isOpen));
         nav.classList.toggle("is-open", isOpen);
         if (label) label.textContent = isOpen ? "Close" : "Menu";
@@ -69,7 +71,7 @@ function initMobileNav() {
     });
 
     nav.addEventListener("click", event => {
-        if (event.target.closest("a")) setMenuState(false, window.innerWidth <= 900);
+        if (event.target.closest("a")) setMenuState(false, mobile.matches);
     });
 
     document.addEventListener('pointerdown', event => {
@@ -82,10 +84,9 @@ function initMobileNav() {
         }
     });
 
-    window.addEventListener("resize", () => {
-        if (window.innerWidth > 900 && toggle.getAttribute("aria-expanded") === "true") {
-            setMenuState(false);
-        }
+    setMenuState(false);
+    mobile.addEventListener("change", () => {
+        setMenuState(false, mobile.matches && nav.contains(document.activeElement));
     });
 }
 
