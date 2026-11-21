@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="360" viewBox="0 0 360 360" overflow="hidden">
+    <title>Josh Anderson Music record sleeve</title>
+    <rect width="360" height="360" fill="#c9e3f1"/>
+    <g fill="#193e54">
+        <text x="25" y="47" font-family="Arial, sans-serif" font-size="13" font-weight="600" letter-spacing="3.3">MUSIC</text>
+        <text x="23" y="110" font-family="Georgia, 'Times New Roman', serif" font-size="59" letter-spacing="-2">Josh</text>
+        <text x="23" y="167" font-family="Georgia, 'Times New Roman', serif" font-size="59" letter-spacing="-2">Anderson</text>
+    </g>
+    <g transform="translate(263 374)">
+        <circle r="185" fill="#173e53"/>
+        <g fill="none" stroke="#406579" stroke-width="1.6">
+            <circle r="178"/><circle r="171"/><circle r="165"/>
+            <circle r="151"/><circle r="145"/><circle r="139"/>
+            <circle r="124"/><circle r="118"/><circle r="112"/>
+            <circle r="96"/><circle r="90"/><circle r="84"/>
+        </g>
+        <circle r="64" fill="#83b4d0"/>
+        <circle r="57" fill="none" stroke="#699bb7"/>
+        <circle r="5" fill="#193e54"/>
+    </g>
+</svg>

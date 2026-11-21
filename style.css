@@ -42,13 +42,11 @@ p { max-width: 70ch; }
 
 /* A quiet masthead, with a proper mobile navigation. */
 #header-placeholder { min-height: var(--header-height); position: sticky; top: 0; z-index: 100; }
-.site-header { background: rgba(255,255,255,.97); border-bottom: 1px solid var(--line); }
+.site-header { background: var(--white); border-bottom: 1px solid var(--line); }
 .nav-container { align-items: center; display: flex; flex-wrap: wrap; gap: 1rem 2rem; justify-content: space-between; margin: auto; max-width: 1296px; min-height: 88px; padding: calc(16px + env(safe-area-inset-top, 0px)) var(--right-gutter) 16px var(--left-gutter); position: relative; }
-.brand-lockup { align-items: center; color: var(--ink); display: inline-flex; flex: 0 0 auto; gap: 12px; max-width: 100%; min-height: 44px; text-decoration: none; width: max-content; }
-.brand-mark { color: var(--blue); display: block; flex: 0 0 30px; height: 42px; width: 30px; }
-.brand-wordmark { display: grid; gap: 6px; }
-.brand-name { font: 500 1.55rem/1.05 var(--heading-font); letter-spacing: -.025em; white-space: nowrap; }
-.brand-label { font: 500 .55rem/1 var(--body-font); letter-spacing: .3em; text-transform: uppercase; }
+.brand-lockup { display: inline-flex; align-items: center; min-height: 44px; max-width: 100%; }
+.brand-logo { width: clamp(9rem, 32vw, 13.25rem); height: auto; }
+
 .logo { min-width: 0; }
 .site-nav ul { align-items: center; display: flex; gap: 2rem; list-style: none; }
 .site-nav a { display: inline-block; font-size: .85rem; font-weight: 500; min-height: 44px; padding: .6rem 0; position: relative; text-decoration: none; white-space: nowrap; }
@@ -166,11 +164,7 @@ body.is-loaded .hero-media img { animation: image-enter .65s var(--ease) both; }
 }
 @media (max-width: 600px) {
     .nav-container { gap: 12px 16px; }
-    .brand-lockup { gap: 10px; }
-    .brand-mark { flex-basis: 25px; height: 35px; width: 25px; }
-    .brand-name { font-size: clamp(.95rem, 4.5vw + .1rem, 1.35rem); }
-    .brand-wordmark { gap: 5px; }
-    .brand-label { font-size: .5rem; }
+
     .hero { grid-template-columns: minmax(0, 1fr); }
     .hero h1 { font-size: clamp(2.75rem, 12.4vw, 4.8rem); max-width: 12ch; }
     .hero-media { aspect-ratio: 5 / 4; }
@@ -256,18 +250,13 @@ body.is-leaving main, body.is-leaving #footer-placeholder { opacity: 0; transfor
     .music-tab-indicator { -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
 }
 
-/* The monogram keeps its square proportions beside the two-line signature. */
-.brand-mark { flex: none; width: clamp(1.9rem, 3vw, 2.45rem); height: auto; }
 .hero-buttons .btn, .profile-links .btn { justify-content: center; }
 .intro-text .btn { margin-top: .6rem; }
 .intro-section { padding-block: clamp(2.25rem, 4vw, 4rem); }
 
 .music-feature { display: grid; align-items: center; gap: clamp(1.5rem, 5vw, 4rem); grid-template-columns: clamp(10rem, 24vw, 16rem) minmax(0, 1fr); margin-top: 2rem; }
-.record-sleeve { position: relative; isolation: isolate; overflow: hidden; width: 100%; aspect-ratio: 1; background: #b6d7eb; color: var(--ink); box-shadow: 0 2px 3px #193e5426, inset 0 0 0 1px #193e541a; container-type: inline-size; }
-.sleeve-name { position: absolute; top: 7%; left: 7%; z-index: 1; font: 500 16cqi/.9 var(--heading-font); letter-spacing: -.065em; }
-.sleeve-disc { position: absolute; width: 112%; aspect-ratio: 1; left: 27%; top: 42%; border-radius: 50%; background: repeating-radial-gradient(circle, #254e68 0 2px, #193e54 3px 5px); }
-.sleeve-disc::after { content: ''; position: absolute; inset: 33%; border-radius: 50%; background: radial-gradient(circle, var(--ink) 0 3%, #dceaf3 4% 100%); }
-.sleeve-imprint { position: absolute; left: 7%; bottom: 6%; writing-mode: vertical-rl; transform: rotate(180deg); font: 600 max(.65rem, 4cqi)/1 var(--body-font); }
+.record-sleeve { width: 100%; height: auto; box-shadow: 0 2px 5px #193e5420; }
+
 .music-feature .music-panel { min-height: 0; align-content: center; justify-items: start; grid-template-columns: minmax(0, 1fr); gap: 1.25rem; padding-block: 1rem; }
 .music-feature .music-panel > .btn { grid-area: auto; }
 .music-status { font-size: .8rem; }

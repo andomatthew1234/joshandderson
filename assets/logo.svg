@@ -1,2 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="280" height="72" viewBox="0 0 280 72" color="#193e54" role="img" aria-labelledby="title"><title id="title">Josh Anderson Music</title><g transform="translate(8 16)"><path d="M9 10v20c0 4-2 6-5 6s-4-2-3-4 4-3 8-2M9 10l16-5" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="m14 30 9-22 10 22m-15-7h12" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linejoin="round" stroke-linecap="round"/></g><text x="58" y="36" font-family="Georgia, serif" font-size="28" fill="currentColor">Josh Anderson</text><text x="60" y="55" font-family="Arial, sans-serif" font-size="10" letter-spacing="3" fill="currentColor">MUSIC</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="286" height="64" viewBox="0 0 286 64" role="img" aria-labelledby="title">
+    <title id="title">Josh Anderson Music</title>
+    <g transform="translate(0 4) scale(.875)">
+        <path fill="#193e54" d="M32 3C17 3 4 8 4 22c0 15 17 35 25 39a6 6 0 0 0 6 0c8-4 25-24 25-39C60 8 47 3 32 3Z"/>
+    <path fill="#fff" d="M34 14v22c0 5-4 9-10 9-4 0-7-2-7-6 0-5 6-9 13-7V17l14-5v7l-10 4Z"/>
+    </g>
+    <g fill="#193e54">
+        <text x="66" y="33" font-family="Georgia, 'Times New Roman', serif" font-size="33" textLength="214" lengthAdjust="spacingAndGlyphs">Josh Anderson</text>
+        <text x="68" y="53" font-family="Arial, sans-serif" font-weight="600" font-size="12" letter-spacing="3.6">MUSIC</text>
+    </g>
+</svg>
