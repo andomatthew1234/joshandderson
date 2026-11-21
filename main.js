@@ -5,9 +5,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     initMobileNav();
     window.addEventListener("hashchange", highlightActiveNav);
     initMusicTabs();
-    initPageTransitions();
     initReveals(document);
-    document.body.classList.add("is-loaded");
 });
 
 async function ensureSharedPart(name, selector) {
@@ -160,30 +158,9 @@ function initReveals(root) {
         });
     }, { threshold: 0.08 });
     root.querySelectorAll('.intro-section .container, .music-section .container, .page-header, .team-card, .event-ticket, .contact-option, .footer-brand, .footer-links-block, .footer-feature, .footer-bottom').forEach(element => {
+        // Leave content in the initial viewport visible on the first paint.
+        if (element.getBoundingClientRect().top < window.innerHeight) return;
         element.classList.add('reveal-ready');
         observer.observe(element);
-    });
-}
-
-function initPageTransitions() {
-    let navigating = false;
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    // Back/forward cache can restore the outgoing page's last visual state.
-    window.addEventListener('pageshow', () => {
-        document.body.classList.remove('is-leaving');
-        navigating = false;
-    });
-    document.addEventListener('click', event => {
-        if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || reducedMotion.matches) return;
-        const link = event.target.closest('a[href]');
-        if (!link || link.hasAttribute('download') || (link.target && link.target !== '_self')) return;
-        const destination = new URL(link.href, document.baseURI);
-        if (destination.origin !== window.location.origin || destination.pathname === window.location.pathname) return;
-        if (!destination.pathname.endsWith('.html') && !destination.pathname.endsWith('/')) return;
-        event.preventDefault();
-        if (navigating) return;
-        navigating = true;
-        document.body.classList.add('is-leaving');
-        window.setTimeout(() => window.location.assign(destination.href), 120);
     });
 }

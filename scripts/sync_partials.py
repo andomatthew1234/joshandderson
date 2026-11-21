@@ -18,6 +18,8 @@ for page in ROOT.glob('*.html'):
     text = page.read_text()
     for part in ('header', 'footer'):
         content = (ROOT / f'{part}.html').read_text().strip()
+        if page.name == 'index.html':
+            content = content.replace('href="index.html#my-music"', 'href="#my-music"')
         block = f'<!-- shared-{part}:start -->\n<div id="{part}-placeholder">\n{content}\n</div>\n<!-- shared-{part}:end -->'
         pattern = rf'<!-- shared-{part}:start -->.*?<!-- shared-{part}:end -->'
         if re.search(pattern, text, re.S):
