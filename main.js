@@ -111,13 +111,13 @@ function initMusicTabs() {
             indicator.style.transform = target;
             if (previousIndex !== null && previousIndex !== index && !motionPreference.matches && indicator.animate) {
                 const restShadow = '0 2px 6px rgba(25,62,84,.08)';
-                const liftedShadow = '0 16px 26px rgba(25,62,84,.18)';
+                const liftedShadow = '0 9px 16px rgba(25,62,84,.18)';
                 indicatorAnimation = indicator.animate([
                     { transform: from, boxShadow: restShadow, offset: 0 },
-                    { transform: `${from} translateZ(18px) scale(1.035, 1.09)`, boxShadow: liftedShadow, offset: .2 },
-                    { transform: `${target} translateZ(18px) scale(1.035, 1.09)`, boxShadow: liftedShadow, offset: .72 },
+                    { transform: `${from} translateZ(10px) scale(1.02, 1.055)`, boxShadow: liftedShadow, offset: .2 },
+                    { transform: `${target} translateZ(10px) scale(1.02, 1.055)`, boxShadow: liftedShadow, offset: .72 },
                     { transform: target, boxShadow: restShadow, offset: 1 }
-                ], { duration: 560, easing: 'cubic-bezier(.22,.7,.2,1)' });
+                ], { duration: 410, easing: 'cubic-bezier(.22,.7,.2,1)' });
             }
             previousIndex = index;
             tabs.forEach((tab, i) => {
@@ -158,7 +158,7 @@ function initReveals(root) {
             }
         });
     }, { threshold: 0.08 });
-    root.querySelectorAll('.intro-section .container, .music-section .container, .page-header, .team-card, .contact-option, .footer-brand, .footer-links-block, .footer-feature, .footer-bottom').forEach(element => {
+    root.querySelectorAll('.intro-section .container, .music-section .container, .page-header, .team-card, .event-ticket, .contact-option, .footer-brand, .footer-links-block, .footer-feature, .footer-bottom').forEach(element => {
         element.classList.add('reveal-ready');
         observer.observe(element);
     });
@@ -183,6 +183,6 @@ function initPageTransitions() {
         if (navigating) return;
         navigating = true;
         document.body.classList.add('is-leaving');
-        window.setTimeout(() => window.location.assign(destination.href), 160);
+        window.setTimeout(() => window.location.assign(destination.href), 120);
     });
 }

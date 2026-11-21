@@ -11,8 +11,8 @@
     <meta property="og:description" content="The home of Josh Anderson Music.">
     <meta property="og:image" content="https://andomatthew1234.github.io/joshandderson/assets/logo.svg">
     <meta name="twitter:card" content="summary">
-    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=a0436b246202">
-    <link rel="stylesheet" href="style.css?v=8f084b24b019">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=ac21c15963e9">
+    <link rel="stylesheet" href="style.css?v=aa3dafeb550e">
     <script type="application/ld+json">
 {
     "@context": "https://schema.org",
@@ -28,8 +28,11 @@
 <div id="header-placeholder">
 <header class="site-header">
     <div class="nav-container">
-        <a href="index.html?v=27ac5e36992d" class="logo brand-lockup" aria-label="Josh Anderson Music home">
-            <svg class="brand-mark" viewBox="0 0 40 56" width="30" height="42" fill="currentColor" aria-hidden="true" focusable="false"><path d="M20 13v29c0 7-14 9-14 1 0-6 9-8 14-5m0-25 14-5v11l-14 5"/></svg>
+        <a href="index.html?v=75adb40b1743" class="logo brand-lockup" aria-label="Josh Anderson Music home">
+            <svg class="brand-mark" viewBox="-2 1 39 39" width="38" height="38" aria-hidden="true" focusable="false">
+                <path d="M9 10v20c0 4-2 6-5 6s-4-2-3-4 4-3 8-2M9 10l16-5" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="m14 30 9-22 10 22m-15-7h12" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linejoin="round" stroke-linecap="round"/>
+            </svg>
             <span class="brand-wordmark"><span class="brand-name">Josh Anderson</span><span class="brand-label">Music</span></span>
         </a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">
@@ -38,11 +41,11 @@
         </button>
         <nav class="site-nav" id="site-navigation">
             <ul>
-                <li><a href="index.html?v=27ac5e36992d">Home</a></li>
-                <li><a href="index.html?v=27ac5e36992d#my-music">My music</a></li>
-                <li><a href="events.html?v=27ac5e36992d">Events</a></li>
-                <li><a href="team.html?v=27ac5e36992d">About me</a></li>
-                <li><a class="nav-contact" href="contact.html?v=27ac5e36992d">Contact</a></li>
+                <li><a href="index.html?v=75adb40b1743">Home</a></li>
+                <li><a href="index.html?v=75adb40b1743#my-music">My music</a></li>
+                <li><a href="events.html?v=75adb40b1743">Events</a></li>
+                <li><a href="team.html?v=75adb40b1743">About me</a></li>
+                <li><a class="nav-contact" href="contact.html?v=75adb40b1743">Contact</a></li>
             </ul>
         </nav>
     </div>
@@ -55,8 +58,8 @@
                 <p class="hero-kicker">The home of Josh Anderson Music.</p>
                 <h1>Josh Anderson Music</h1>
                 <div class="hero-buttons">
-                    <a href="#about" class="btn btn-primary">Learn more <span aria-hidden="true">↓</span></a>
-                    <a href="#about" class="btn btn-secondary">About <span aria-hidden="true">↗</span></a>
+                    <a href="#my-music" class="btn btn-primary">Listen to my music</a>
+                    <a href="#about" class="btn btn-secondary">About me</a>
                 </div>
             </div>
             <figure class="hero-media">
@@ -68,7 +71,8 @@
             <div class="container">
                 <div class="intro-text">
                     <h2 id="about-heading">About me</h2>
-                    <p>Text coming soon</p>
+                    <div><p>Text coming soon</p>
+                        <a class="btn btn-secondary" href="team.html?v=75adb40b1743">Meet Josh</a></div>
                 </div>
             </div>
         </section>
@@ -91,26 +95,32 @@
                             <span>Apple Music<small>Coming soon</small></span>
                         </button>
                     </div>
-                    <div class="music-panel-stage">
-                        <div class="music-panels">
-                            <div class="music-panel" id="panel-soundcloud" role="tabpanel" aria-labelledby="tab-soundcloud" tabindex="0">
-                                <div class="music-panel-copy">
-                                    <p class="music-status">Listen now</p>
-                                    <h3>SoundCloud</h3>
-                                    <p>Listen to Josh Anderson Music on SoundCloud.</p>
+                    <div class="music-feature">
+                        <div class="record-sleeve" aria-hidden="true">
+                            <span class="sleeve-name">Josh<br>Anderson</span>
+                            <span class="sleeve-disc"></span>
+                            <span class="sleeve-imprint">Josh Anderson Music</span>
+                        </div>
+                        <div class="music-panel-stage">
+                            <div class="music-panels">
+                                <div class="music-panel" id="panel-soundcloud" role="tabpanel" aria-labelledby="tab-soundcloud" tabindex="0">
+                                    <div class="music-panel-copy">
+                                        <p class="music-status">Listen now</p>
+                                        <h3>SoundCloud</h3>
+                                    </div>
+                                    <a class="btn btn-primary" href="https://soundcloud.com/user-360699892" target="_blank" rel="noopener noreferrer" aria-label="Open SoundCloud (opens in a new tab)">Open SoundCloud</a>
                                 </div>
-                                <a class="btn btn-primary" href="https://soundcloud.com/user-360699892" target="_blank" rel="noopener noreferrer" aria-label="Listen on SoundCloud (opens in a new tab)">Listen on SoundCloud <span aria-hidden="true">↗</span></a>
-                            </div>
-                            <div class="music-panel" id="panel-spotify" role="tabpanel" aria-labelledby="tab-spotify" tabindex="0">
-                                <div class="music-panel-copy">
-                                    <p class="music-status">Coming soon</p>
-                                    <h3>Spotify</h3>
+                                <div class="music-panel" id="panel-spotify" role="tabpanel" aria-labelledby="tab-spotify" tabindex="0">
+                                    <div class="music-panel-copy">
+                                        <p class="music-status">Coming soon</p>
+                                        <h3>Spotify</h3>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="music-panel" id="panel-applemusic" role="tabpanel" aria-labelledby="tab-applemusic" tabindex="0">
-                                <div class="music-panel-copy">
-                                    <p class="music-status">Coming soon</p>
-                                    <h3>Apple Music</h3>
+                                <div class="music-panel" id="panel-applemusic" role="tabpanel" aria-labelledby="tab-applemusic" tabindex="0">
+                                    <div class="music-panel-copy">
+                                        <p class="music-status">Coming soon</p>
+                                        <h3>Apple Music</h3>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -125,8 +135,11 @@
 <footer class="site-footer brand-footer">
     <div class="footer-container">
         <div class="footer-brand">
-            <a href="index.html?v=27ac5e36992d" class="footer-logo brand-lockup" aria-label="Josh Anderson Music home">
-                <svg class="brand-mark" viewBox="0 0 40 56" width="30" height="42" fill="currentColor" aria-hidden="true" focusable="false"><path d="M20 13v29c0 7-14 9-14 1 0-6 9-8 14-5m0-25 14-5v11l-14 5"/></svg>
+            <a href="index.html?v=75adb40b1743" class="footer-logo brand-lockup" aria-label="Josh Anderson Music home">
+                <svg class="brand-mark" viewBox="-2 1 39 39" width="38" height="38" aria-hidden="true" focusable="false">
+                <path d="M9 10v20c0 4-2 6-5 6s-4-2-3-4 4-3 8-2M9 10l16-5" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="m14 30 9-22 10 22m-15-7h12" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linejoin="round" stroke-linecap="round"/>
+            </svg>
             <span class="brand-wordmark"><span class="brand-name">Josh Anderson</span><span class="brand-label">Music</span></span>
             </a>
             <p>The home of Josh Anderson Music.</p>
@@ -134,18 +147,18 @@
         <nav class="footer-links-block" aria-label="Footer navigation">
             <h2>Explore</h2>
             <ul class="footer-page-links">
-                <li><a href="index.html?v=27ac5e36992d">Home</a></li>
-                <li><a href="index.html?v=27ac5e36992d#my-music">My music</a></li>
-                <li><a href="events.html?v=27ac5e36992d">Events</a></li>
-                <li><a href="team.html?v=27ac5e36992d">About me</a></li>
-                <li><a href="contact.html?v=27ac5e36992d">Contact</a></li>
+                <li><a href="index.html?v=75adb40b1743">Home</a></li>
+                <li><a href="index.html?v=75adb40b1743#my-music">My music</a></li>
+                <li><a href="events.html?v=75adb40b1743">Events</a></li>
+                <li><a href="team.html?v=75adb40b1743">About me</a></li>
+                <li><a href="contact.html?v=75adb40b1743">Contact</a></li>
             </ul>
         </nav>
         <div class="footer-feature">
             <p class="footer-eyebrow">Get in touch</p>
             <h2>Let’s talk music.</h2>
             <p><strong>Phone:</strong> <a href="tel:+61487285665">0487 285 665</a></p>
-            <a class="btn btn-primary" href="contact.html?v=27ac5e36992d">Contact Josh <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-primary" href="contact.html?v=75adb40b1743">Contact Josh <span aria-hidden="true">↗</span></a>
         </div>
     </div>
     <div class="footer-bottom">
@@ -156,6 +169,6 @@
 </div>
 <!-- shared-footer:end -->
 
-    <script src="main.js?v=37aa8dc229ea"></script>
+    <script src="main.js?v=829282d60b24"></script>
 </body>
 </html>

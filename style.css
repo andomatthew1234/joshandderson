@@ -134,11 +134,11 @@ p { max-width: 70ch; }
 .footer-bottom a:hover { text-decoration: underline; }
 
 /* Motion has an entrance, a response and a stopping point. */
-body.is-loaded .hero-overlay > * { animation: page-enter .8s var(--ease) both; }
+body.is-loaded .hero-overlay > * { animation: page-enter .5s var(--ease) both; }
 body.is-loaded .hero-overlay h1 { animation-delay: .08s; }
 body.is-loaded .hero-buttons { animation-delay: .16s; }
-body.is-loaded .hero-media img { animation: image-enter 1.3s var(--ease) both; }
-.reveal-ready { opacity: 0; transform: translateY(18px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+body.is-loaded .hero-media img { animation: image-enter .65s var(--ease) both; }
+.reveal-ready { opacity: 0; transform: translateY(8px); transition: opacity .38s var(--ease), transform .38s var(--ease); }
 .reveal-ready.is-visible { opacity: 1; transform: none; }
 .footer-container > :nth-child(2) { transition-delay: .07s; }
 .footer-container > :nth-child(3) { transition-delay: .14s; }
@@ -198,8 +198,8 @@ body.is-loaded .hero-media img { animation: image-enter 1.3s var(--ease) both; }
 }
 
 /* Page navigation leaves the masthead visible throughout the transition. */
-main, #footer-placeholder { transition: opacity .16s ease, transform .16s ease; }
-body.is-loaded main { animation: document-enter .38s var(--ease) both; }
+main, #footer-placeholder { transition: opacity .12s ease, transform .12s ease; }
+body.is-loaded main { animation: document-enter .26s var(--ease) both; }
 body.is-leaving main { animation: none; }
 body.is-leaving main, body.is-leaving #footer-placeholder { opacity: 0; transform: translateY(-6px); }
 @keyframes document-enter { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
@@ -254,4 +254,37 @@ body.is-leaving main, body.is-leaving #footer-placeholder { opacity: 0; transfor
 @media (pointer: coarse) {
     .btn:hover span { transform: none; }
     .music-tab-indicator { -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+}
+
+/* The monogram keeps its square proportions beside the two-line signature. */
+.brand-mark { flex: none; width: clamp(1.9rem, 3vw, 2.45rem); height: auto; }
+.hero-buttons .btn, .profile-links .btn { justify-content: center; }
+.intro-text .btn { margin-top: .6rem; }
+.intro-section { padding-block: clamp(2.25rem, 4vw, 4rem); }
+
+.music-feature { display: grid; align-items: center; gap: clamp(1.5rem, 5vw, 4rem); grid-template-columns: clamp(10rem, 24vw, 16rem) minmax(0, 1fr); margin-top: 2rem; }
+.record-sleeve { position: relative; isolation: isolate; overflow: hidden; width: 100%; aspect-ratio: 1; background: #b6d7eb; color: var(--ink); box-shadow: 0 2px 3px #193e5426, inset 0 0 0 1px #193e541a; container-type: inline-size; }
+.sleeve-name { position: absolute; top: 7%; left: 7%; z-index: 1; font: 500 16cqi/.9 var(--heading-font); letter-spacing: -.065em; }
+.sleeve-disc { position: absolute; width: 112%; aspect-ratio: 1; left: 27%; top: 42%; border-radius: 50%; background: repeating-radial-gradient(circle, #254e68 0 2px, #193e54 3px 5px); }
+.sleeve-disc::after { content: ''; position: absolute; inset: 33%; border-radius: 50%; background: radial-gradient(circle, var(--ink) 0 3%, #dceaf3 4% 100%); }
+.sleeve-imprint { position: absolute; left: 7%; bottom: 6%; writing-mode: vertical-rl; transform: rotate(180deg); font: 600 max(.65rem, 4cqi)/1 var(--body-font); }
+.music-feature .music-panel { min-height: 0; align-content: center; justify-items: start; grid-template-columns: minmax(0, 1fr); gap: 1.25rem; padding-block: 1rem; }
+.music-feature .music-panel > .btn { grid-area: auto; }
+.music-status { font-size: .8rem; }
+.profile-section { padding-block: clamp(2rem, 6vw, 5rem); grid-template-columns: minmax(0, 19rem) minmax(0, 1fr); gap: clamp(1.5rem, 5vw, 4.5rem); }
+.team-info h1 { font-size: clamp(2.8rem, 7vw, 6rem); }
+.team-info .page-kicker { margin-bottom: .75rem; }
+.profile-links { display: flex; align-items: center; gap: .75rem 1.5rem; flex-wrap: wrap; margin-top: 1.75rem; }
+.event-ticket { display: grid; grid-template-columns: minmax(0, 1fr) minmax(4rem, 22%); background: var(--sky); border: 1px solid var(--line); }
+.ticket-body { padding: clamp(1.25rem, 4vw, 3rem); }
+.ticket-body p { max-width: 47ch; margin: 1rem 0; }
+.ticket-stub { display: grid; place-items: center; overflow: hidden; border-left: 2px dashed #a8c7d9; }
+.staff-lines { width: 100%; height: 2.6rem; background: repeating-linear-gradient(to bottom, #789eb6 0 1px, transparent 1px 25%); border-bottom: 1px solid #789eb6; transform: skewY(-12deg); }
+
+@media (max-width: 600px) {
+    .music-feature { grid-template-columns: minmax(0, 1fr); gap: .75rem; }
+    .record-sleeve { width: min(100%, 11rem); }
+    .profile-section { grid-template-columns: minmax(0, 1fr); }
+    .profile-section .team-img-wrapper { max-width: 18rem; margin-inline: 0; }
+    .profile-section .team-info { max-width: none; }
 }
